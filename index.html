@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Flight Delay Explorer</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div class="page-title">
+        US Flight Delay Explorer
+    </div>
+    <div class="main-content">
+        <div class="filter-panel">
+            <h2>Filter Options</h2>
+            <label for="year-select">Select Year:</label>
+            <select id="year-select" name="year-select">
+                <option value="2019">2019</option>
+                <option value="2020" selected>2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+            </select>
+            <label for="pct-delayed">Min % Delayed:</label>
+            <input type="number" id="pct-delayed" name="pct-delayed" min="0" max="100" step="1" value="0">
+            <label for="num-connections">Min Number of Connections:</label>
+            <input type="number" id="num-connections" name="num-connections" min="0" step="1" value="0">
+            <button id="apply-filters">Apply Filters</button>
+        </div>
+        <div id="map-container">
+            <div id="loading-indicator">Loading data...</div>
+            <svg id="map-svg" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet"></svg>  
+            <div class="zoom-controls">
+                <button id="zoom-in">+</button>
+                <button id="zoom-out">−</button>
+                <button id="reset">⟲</button>
+            </div>
+        </div>
+        <div class="histograms">
+            <div class="histogram-container">
+                <h3 class="histogram-title">Percentage of Delayed Flights</h3>
+                <svg id="histogram-delay" class="histogram-svg" width="400" height="200"></svg>
+            </div>
+            <div class="histogram-container">
+                <h3 class="histogram-title">Average Delay (Minutes)</h3>
+                <svg id="histogram-average-delay" class="histogram-svg" width="400" height="200"></svg>
+            </div>
+        </div>
+        
+    </div>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

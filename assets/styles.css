@@ -1,0 +1,393 @@
+/* Body Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* Page Title */
+.page-title {
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Main Content Container */
+.main-content {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 80px; /* Space for the fixed header */
+    width: 100%;
+    height: calc(100vh - 80px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Filter Panel */
+.filter-panel {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.filter-panel:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.filter-panel h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+.filter-panel label {
+    font-size: 14px;
+    color: #34495e;
+}
+
+.filter-panel input, 
+.filter-panel select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-panel input:focus, 
+.filter-panel select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.filter-panel button {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    background: #2ecc71;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.filter-panel button:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+#map-container {
+    flex: 1;
+    position: relative;
+    margin: 20px 20px 20px 0;
+    max-width: 1200px;
+    width: 100%;
+    height: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+#map-container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Zoom Controls */
+.zoom-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;  
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: background 0.3s ease;
+}
+
+.zoom-controls:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.zoom-controls button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #2ecc71;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.zoom-controls button:hover {
+    background: #51ff7a;
+    transform: scale(1.05);
+}
+
+.zoom-controls #reset {
+    width: 40px;
+    font-size: 16px;
+}
+
+/* Ocean Background */
+.ocean {
+    fill: #00a0e5;
+    opacity: 0.8;
+}
+
+.histograms {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.histogram-container {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 14px;
+    max-width: 600px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    color: #00a0e5;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Histogram Titles */
+.histogram-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+    text-align: center;
+}
+
+/* Histogram SVG */
+.histogram-svg {
+    width: 100%;
+    height: 200px;
+    background: #fff;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.histogram-bar {
+    background-color: #00a0e5;
+    transition: background-color 0.3s ease;
+}
+
+.histogram-bar:hover {
+    background-color: #007a8c; 
+}
+
+
+/* States */
+.states path {
+    fill: white;
+    stroke: #fff;
+    stroke-width: 0.5px;
+}
+
+/* State Borders */
+.state-borders {
+    fill: none;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+/* Airports */
+.airports circle {
+    stroke: white; 
+    stroke-width: 0.5px;
+    transition: r 0.3s, fill 0.3s, stroke-width 0.3s;
+    pointer-events: all; 
+}
+
+.airports circle:hover {
+    stroke-width: 1.5px;
+    cursor: pointer;
+    opacity: 1;
+    fill: #FFD700; /* Highlight color on hover */
+}
+
+/* Clusters */
+.clusters circle.cluster {
+    fill: rgba(0, 128, 255, 0.6);
+    stroke: #fff;
+    stroke-width: 1px;
+    cursor: pointer;
+    transition: r 0.3s, fill 0.3s, stroke-width 0.3s;
+}
+
+.clusters circle.cluster:hover {
+    fill: rgba(0, 128, 255, 0.8);
+    stroke-width: 2px;
+}
+
+/* Aggregated Markers */
+.aggregated-marker {
+    fill: #ff4444;
+    stroke: white;
+    stroke-width: 1px;
+}
+
+/* Connections */
+.connections path.connection {
+    stroke: orange;
+    stroke-width: 2px;
+    opacity: 0.8;
+    transition: stroke-width 0.3s, opacity 0.3s;
+}
+
+.connections path.connection:hover {
+    stroke-width: 3px;
+    opacity: 1;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    text-align: left;
+    width: auto;
+    padding: 10px;
+    font: 14px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    pointer-events: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+} 
+
+/* Legend */
+.legend {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Align to the left */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+.legend .legend-title {
+    font-weight: bold;
+    fill: #2c3e50;
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+.legend rect {
+    stroke: #2c3e50;
+    stroke-width: 1px;
+}
+
+/* Buttons */
+button {
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .filter-panel {
+        width: 90%;
+        position: static;
+        margin: 10px 0;
+    }
+
+    #map-container {
+        width: 90%;
+        height: 500px;
+    }
+}
+
+@media (max-width: 800px) {
+    #map-container {
+        height: 450px;
+    }
+}
+
+@media (max-width: 600px) {
+    .zoom-controls {
+        flex-direction: row;
+        gap: 4px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .zoom-controls button {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .filter-panel {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .filter-panel h2 {
+        font-size: 16px;
+    }
+
+    .filter-panel label, 
+    .filter-panel input, 
+    .filter-panel select, 
+    .filter-panel button {
+        font-size: 12px;
+    }
+
+    #map-container {
+        height: 400px;
+    }
+}
+
